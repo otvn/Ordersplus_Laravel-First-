@@ -1,0 +1,45 @@
+.progress-ring {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-ring__background {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e5e7eb;
+    position: absolute;
+}
+.progress-ring__fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    clip-path: circle(50%);
+}
+.progress-ring__value {
+    position: relative;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+/* Specific progress fills using conic-gradient */
+.progress-90 {
+    background: conic-gradient(#FF6200 0% 90%, transparent 90% 100%);
+    transform: rotate(90deg);
+}
+.progress-74 {
+    background: conic-gradient(#FF6200 0% 74%, transparent 74% 100%);
+    transform: rotate(90deg);
+}
+.progress-86 {
+    background: conic-gradient(#FF6200 0% 86%, transparent 86% 100%);
+    transform: rotate(90deg);
+}
+.progress-78 {
+    background: conic-gradient(#FF6200 0% 78%, transparent 78% 100%);
+    transform: rotate(90deg);
+}

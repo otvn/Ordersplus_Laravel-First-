@@ -1,787 +1,671 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- links css -->
-<link rel="stylesheet" href="{{ asset('styles/orders.css') }}">
-    <!-- link font awsome -->
-    <script src="https://kit.fontawesome.com/ba715376e0.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>OrdersPlus</title>
-</head>
-<body class="bg-gradient-to-r from-indigo-700 to-purple-800">
-  <div class="max-w-screen-xl mx-auto p-6 space-y-12">
+@extends('layouts.layout')
 
-    <!-- Monthly Stats Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+@section('title', 'Dashboard')
 
-        <!-- No. Buyers Gauge -->
-        <div class="bg-gradient-to-r from-green-500 to-blue-500 rounded-xl shadow-xl p-6 text-white">
-            <h3 class="text-2xl font-semibold mb-4">No. Buyers</h3>
-            
-            <!-- Monthly Tabs (Previous and Current Month) -->
-            <div class="flex justify-between items-center mb-4">
-                <button class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Previous Month</button>
-                <button class="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800">Current Month</button>
-            </div>
-            
-            <!-- Gauge Display (for No. Buyers) -->
-            <div class="flex justify-center items-center mb-6">
-                <div class="w-24 h-24 bg-white rounded-full flex justify-center items-center">
-                    <span class="text-2xl font-semibold text-green-600">299</span>
+@section('content')
+<div class="container mx-auto p-4">
+    <div class="min-h-screen grid grid-cols-1 lg:grid-cols-10 gap-6 p-6">
+      <!-- Left Column -->
+      <div class="lg:col-span-7">
+        <div class="bg-black text-white p-6">
+            <!-- Top Row -->
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
+              <!-- Left: Welcome and Search -->
+              <div class="flex flex-col lg:flex-row items-center gap-6 w-full lg:w-auto">
+                <h2 class="text-xl font-semibold">Welcome, <span class="text-yellow-400">Onti 👋</span></h2>
+                <!-- Search -->
+                <div class="relative w-full max-w-md">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="w-full bg-gray-800 text-white rounded-full py-2 px-4 pl-10 focus:outline-none"
+                  />
+                  <svg
+                    class="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 16.65z" />
+                  </svg>
                 </div>
-            </div>
-
-            <!-- Buyers Type -->
-            <div class="text-sm flex justify-between text-white">
-                <span><span class="bg-green-600 p-2 rounded-full mr-2">●</span> New Buyers</span>
-                <span><span class="bg-blue-600 p-2 rounded-full mr-2">●</span> Regular Buyers</span>
-            </div>
-        </div>
-
-        <!-- Sales Revenue Gauge -->
-        <div class="bg-gradient-to-r from-yellow-500 to-red-500 rounded-xl shadow-xl p-6 text-white">
-            <h3 class="text-2xl font-semibold mb-4">Sales Revenue</h3>
+              </div>
             
-            <!-- Monthly Tabs (Previous and Current Month) -->
-            <div class="flex justify-between items-center mb-4">
-                <button class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Previous Month</button>
-                <button class="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800">Current Month</button>
-            </div>
-            
-            <!-- Gauge Display (for Sales Revenue) -->
-            <div class="flex justify-center items-center mb-6">
-                <div class="w-30 h-32 bg-white rounded-full flex justify-center items-center">
-                    <span class="text-2xl font-semibold text-yellow-600">$107,968.00</span>
+              <!-- Right: Notification + Profile -->
+              <div class="flex items-center gap-4">
+                <button class="relative">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                  <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full w-4 h-4 flex items-center justify-center">1</span>
+                </button>
+                <div class="flex items-center gap-2">
+                  <img src="https://i.pravatar.cc/40?img=5" alt="profile" class="w-10 h-10 rounded-full" />
+                  <div class="text-sm">
+                    <div class="font-semibold">Nausin Onti</div>
+                    <div class="text-gray-400 text-xs">Admin</div>
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <!-- Sales Revenue Type -->
-            <div class="text-sm flex justify-between text-white">
-                <span><span class="bg-yellow-600 p-2 rounded-full mr-2">●</span> Sales</span>
-                <span><span class="bg-red-600 p-2 rounded-full mr-2">●</span> Returns</span>
+          
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+              <!-- Card 1 -->
+              <div class="bg-green-400 text-black rounded-xl p-4 flex justify-between items-center">
+                <div>
+                  <div class="text-lg font-bold">$11,256</div>
+                  <div class="text-sm">Today's Revenue</div>
+                </div>
+                <div class="bg-black p-2 rounded-full">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 8c-1.657 0-3 1.343-3 3v4m3-7c1.657 0 3 1.343 3 3v4m-6 0h6" />
+                  </svg>
+                </div>
+              </div>
+          
+              <!-- Card 2 -->
+              <div class="bg-purple-400 text-black rounded-xl p-4 flex justify-between items-center">
+                <div>
+                  <div class="text-lg font-bold">245</div>
+                  <div class="text-sm">Today's Order</div>
+                </div>
+                <div class="bg-black p-2 rounded-full">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 10h2l1 2h13l1-2h2m-4 4h-1a4 4 0 00-8 0H7m2 4h6" />
+                  </svg>
+                </div>
+              </div>
+          
+              <!-- Card 3 -->
+              <div class="bg-blue-400 text-black rounded-xl p-4 flex justify-between items-center">
+                <div>
+                  <div class="text-lg font-bold">$6,556</div>
+                  <div class="text-sm">Avg. Expense</div>
+                </div>
+                <div class="bg-black p-2 rounded-full">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+          
+              <!-- Card 4 -->
+              <div class="bg-red-400 text-black rounded-xl p-4 flex justify-between items-center">
+                <div>
+                  <div class="text-lg font-bold">$4,227</div>
+                  <div class="text-sm">Avg. Revenue</div>
+                </div>
+                <div class="bg-black p-2 rounded-full">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 14l6-6m0 0l-6-6m6 6H3" />
+                  </svg>
+                </div>
+              </div>
             </div>
-        </div>
-
-    </div>
-
-    <!-- Month Selector (May) -->
-    <div class="flex justify-center items-center space-x-6">
-        <button class="bg-purple-700 text-white px-6 py-2 rounded-lg hover:bg-purple-800">Previous</button>
-        <span class="text-3xl font-semibold text-white">May</span>
-        <button class="bg-purple-700 text-white px-6 py-2 rounded-lg hover:bg-purple-800">Next</button>
-    </div>
-
-</div>
+          </div>
+          
 
    
 
-
-
-<div class="stats-section grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-   <!-- New Buyers Comparison -->
-   <div class="stat-card   bg-white  shadow-lg rounded-xl p-5">
-     <h3 class="text-lg font-semibold pt-16 mb-3 text-center text-gray-700">New Buyers Comparison</h3>
-     <canvas  class="pt-10" id="buyersLineChart" height="250"></canvas>
-   </div>
- 
-   <!-- Returned Items -->
-   <div class="stat-card  bg-gradient-to-r from-yellow-500 to-red-500  shadow-lg rounded-xl p-5 text-center">
-     <h3 class="text-lg font-semibold mb-3 text-2xl text-gray-700">Returned Items</h3>
-     <canvas id="returnedPieChart" height="100"></canvas>
-     <p class="text-2xl font-bold mt-4">116</p>
-   </div>
- 
-   <!-- Sales Figure Comparison -->
-   <div class="stat-card bg-white shadow-lg rounded-xl p-5">
-     <h3 class="text-lg font-semibold mb-3 text-center pt-16 text-gray-700">Sales Figure Comparison</h3>
-     <canvas class="pt-10" id="salesBarChart" height="250"></canvas>
-     <div class=" bg-white  text-center mt-4 p-2 rounded-lg text-blue-800 font-semibold">Sydney</div>
-   </div>
- </div>
- 
- <script>
-   const buyersLineChart = new Chart(document.getElementById("buyersLineChart"), {
-     type: "line",
-     data: {
-       labels: ["Jul", "Aug", "Sep", "Oct"],
-       datasets: [
-         {
-           label: "New Buyers",
-           data: [60, 70, 65, 80],
-           borderColor: "#0e51a7",
-           fill: false
-         },
-         {
-           label: "Returning Buyers",
-           data: [40, 50, 48, 55],
-           borderColor: "#964B00",
-           fill: false
-         }
-       ]
-     }
-   });
- 
-   const returnedPieChart = new Chart(document.getElementById("returnedPieChart"), {
-     type: "doughnut",
-     data: {
-       labels: ["September", "October"],
-       datasets: [{
-         data: [30, 86],
-         backgroundColor: ["#0e51a7", "#964B00"]
-       }]
-     }
-   });
- 
-   const salesBarChart = new Chart(document.getElementById("salesBarChart"), {
-     type: "bar",
-     data: {
-       labels: ["Jul", "Oct"],
-       datasets: [{
-         label: "Sales",
-         data: [95000, 167000],
-         backgroundColor: ["#964B00", "#0e51a7"]
-       }]
-     }
-   });
- 
-   
- </script>
-
-    <div class="dashboard">
-
-        <div class="card orange">
-          <i class="fas fa-box icon"></i>
-          <div class="card-title">Total Received Orders</div>
-          <div class="card-value">189</div>
-        </div>
-    
-        <div class="card blue">
-          <i class="fas fa-truck icon"></i>
-          <div class="card-title">Total Delivered Orders</div>
-          <div class="card-value">183</div>
-        </div>
-    
-        <div class="card green">
-          <i class="fas fa-dollar-sign icon"></i>
-          <div class="card-title">Sales Revenue</div>
-          <div class="card-value">$391,026</div>
-        </div>
-    
-        <div class="card yellow">
-          <i class="fas fa-users icon"></i>
-          <div class="card-title">Active Buyers</div>
-          <div class="card-value">426</div>
-        </div>
-    
-        <div class="card pink">
-          <i class="fas fa-tags icon"></i>
-          <div class="card-title">Discount Sales</div>
-          <div class="card-value">$45,256</div>
-        </div>
-    
-        <div class="card teal">
-          <i class="fas fa-flag icon"></i>
-          <div class="card-title">First-time Buyers</div>
-          <div class="card-value">13</div>
-        </div>
-    
-        <div class="card red">
-          <i class="fas fa-user-slash icon"></i>
-          <div class="card-title">Suspended Account</div>
-          <div class="card-value">9</div>
-        </div>
-    
-        <div class="card purple">
-          <i class="fas fa-exclamation-triangle icon"></i>
-          <div class="card-title">Issues & Return</div>
-          <div class="card-value">4</div>
-        </div>
-    
-      </div>
-       <!-- Category Sales Overview and Monthly Sales Comparison Section --> 
-       <div class="max-w-screen-xl mx-auto p-6 space-y-12">
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-    
-            <!-- Category Sales Overview (Donut Chart and Week Selector) -->
-            <div class="bg-gradient-to-r from-purple-700 via-blue-800 to-purple-700 rounded-xl shadow-xl p-6">
-                <h3 class="text-2xl font-semibold text-white mb-6">Category Sales Overview</h3>
-    
-                <div class="flex justify-between items-center mb-6">
-                    <div class="text-white">Week 2</div>
-                    <div class="flex space-x-4">
-                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Previous</button>
-                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Next</button>
-                    </div>
+          <div class="max-w-3xl mx-auto grid grid-cols-2 gap-6">
+            <!-- Total Revenue Section -->
+            <div class="bg-[#7E7E7E] p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Total Revenue</h2>
+                    <select class="border rounded px-2 py-1 text-sm">
+                        <option>Last 8 Months</option>
+                    </select>
                 </div>
-    
-                <!-- Donut Chart -->
-                <div class="w-full h-60">
-                    <canvas id="categorySalesChart"></canvas>
-                </div>
-    
-                <div class="mt-6 flex flex-col space-y-2">
-                    <div class="text-white text-sm flex justify-between">
-                        <span>Restaurants</span>
-                        <span class="text-purple-400">40%</span>
-                    </div>
-                    <div class="text-white text-sm flex justify-between">
-                        <span>Pub & Bars</span>
-                        <span class="text-blue-400">30%</span>
-                    </div>
-                    <div class="text-white text-sm flex justify-between">
-                        <span>Takeaways</span>
-                        <span class="text-yellow-400">20%</span>
-                    </div>
-                    <div class="text-white text-sm flex justify-between">
-                        <span>Catering</span>
-                        <span class="text-green-400">10%</span>
-                    </div>
+                <p class="text-3xl font-bold">$184,839</p>
+                <div class="mt-4 w-84 ">
+                    <canvas id="revenueChart" class="w-full h-64"></canvas>
                 </div>
             </div>
     
-            <!-- Monthly Sales Comparison (Bar Chart) -->
-            <div class="bg-gradient-to-r lg:grid   from-green-600 to-blue-700 rounded-xl shadow-xl p-6">
-                <h3 class="text-2xl font-semibold text-white mb-6">Monthly Sales Comparison</h3>
-    
-                <!-- Bar Chart -->
-                <div class="w-full">
-                    <canvas id="monthlySalesChart"></canvas>
+            <!-- Top Categories Section -->
+            <div class="bg-[#7E7E7E] p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Top Categories</h2>
+                    <select class="border rounded px-2 py-1 text-sm">
+                        <option>This Month</option>
+                    </select>
                 </div>
-    
-                <div class="flex justify-between mt-6 text-white text-sm">
-                    <span class="text-blue-400 text-lg">Previous Month</span>
-                    <span class="text-orange-400 text-lg">Current Month</span>
+                <div class="flex justify-center pl-14 w-48 h-48">
+                    <canvas id="categoriesChart" class=" w-48 h-48"></canvas>
+                </div>
+                <div class="text-sm">
+                    <p><span class="inline-block w-4 h-4 bg-orange-500 rounded-full mr-2"></span>Seafood 30%</p>
+                    <p><span class="inline-block w-4 h-4 bg-gray-800 rounded-full mr-2"></span>Dessert 25%</p>
+                    <p><span class="inline-block w-4 h-4 bg-gray-200 rounded-full mr-2"></span>Beverages 25%</p>
+                    <p><span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2"></span>Pasta 20%</p>
                 </div>
             </div>
         </div>
     
-    </div>
-    
-    <!-- Chart.js Initialization -->
-    <script>
-        // Category Sales Overview Donut Chart
-        const categorySalesChart = new Chart(document.getElementById("categorySalesChart"), {
-            type: 'doughnut',
-            data: {
-                labels: ['Restaurants', 'Pubs & Bars', 'Takeaways', 'Catering'],
-                datasets: [{
-                    data: [40, 30, 20, 10],
-                    backgroundColor: ['#9333ea', '#3b82f6', '#facc15', '#10b981'],
-                    hoverBackgroundColor: ['#7c3aed', '#2563eb', '#eab308', '#4ade80']
-                }]
+        <script>
+            // Line Chart for Revenue (Income and Expense)
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [
+                        {
+                            label: 'Income',
+                            data: [8000, 10000, 9000, 12000, 16580, 14000, 18000, 20000],
+                            borderColor: '#F97316',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'white'
+                        },
+                        {
+                            label: 'Expense',
+                            data: [5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000],
+                            borderColor: '#FFFFF',
+                            backgroundColor: 'rgba(31, 41, 55, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                           
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 25000,
+                            ticks: {
+                                stepSize: 5000,
+                                callback: function(value) {
+                                    return value / 1000 + 'K';
+                                },
+                                color: 'white'
+                            },
+                            grid: {
+                    color: 'white' // Change y-axis grid lines to white
+                }
+                        },
+                        x: {
+                ticks: {
+                    color: 'white' // Change x-axis labels to white
+                },
+                grid: {
+                    color: 'white' // Change y-axis grid lines to white
+                }
+            }
+                    },
+                    plugins: {
+                        legend: {
+                labels: {
+                    color: 'white' // Change legend text color to white
+                }
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            font: {
-                                size: 14
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.raw;
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
+            });
     
-        // Monthly Sales Comparison Bar Chart
-        const monthlySalesChart = new Chart(document.getElementById("monthlySalesChart"), {
-    type: 'bar',
-    data: {
-        labels: ['Restaurants', 'Bar & Pub', 'Cafe', 'Catering', 'Takeaway', 'Food Retails'],
-        datasets: [
-            {
-                label: 'Previous Month',
-                data: [150000, 120000, 90000, 80000, 75000, 70000],
-                backgroundColor: '#3b82f6',
-                borderRadius: 8,
-            },
-            {
-                label: 'Current Month',
-                data: [180000, 140000, 110000, 130000, 85000, 95000],
-                backgroundColor: '#f97316',
-                borderRadius: 8,
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            x: {
-                beginAtZero: true,
-                ticks: {
-                    color: 'white',  // Setting x-axis label text color to white
+            // Donut Chart for Top Categories
+            const categoriesCtx = document.getElementById('categoriesChart').getContext('2d');
+            new Chart(categoriesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Seafood', 'Dessert', 'Beverages', 'Pasta'],
+                    datasets: [{
+                        data: [30, 25, 25, 20],
+                        backgroundColor: ['#F97316', '#1F2937', '#E5E7EB', '#9CA3AF'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: '50%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
                 }
-            },
-            y: {
-                ticks: {
-                    color: 'white',  // Setting y-axis label text color to white
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white', // Set legend text color to white
-                }
-            },
-            tooltip: {
-                bodyColor: 'white',  // Set tooltip text color to white
-            }
-        }
-    }
-});
-
-
-    </script>
-    
-    <!-- Business Development Team Section -->
-<div class="max-w-screen-xl mx-auto p-6">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <!-- Team Section -->
-      <div class="bg-[#0e51a7] rounded-xl shadow-xl p-6">
-          <h3 class="text-2xl font-semibold text-white mb-6 text-center">Business Development Team</h3>
-          <div class="flex justify-center items-center space-x-6">
-              <div class="team-member-card">
-              <img src="{{ asset('images/example.jpg') }}"  alt="Adam Gibson" class="team-member-img">
-                 
-                  <p class="team-member-name">Adam Gibson</p>
-              </div>
-              <div class="team-member-card">
-              <img src="{{ asset('images/example.jpg') }}"  alt="Adam Gibson" class="team-member-img">
-                  <p class="team-member-name">Angela Ross</p>
-              </div>
-              <div class="team-member-card">
-                  <img src="images/developer.jpg" alt="Casey Alxer" class="team-member-img">
-                  <p class="team-member-name">Casey Alxer</p>
-              </div>
-          </div>
-          <div class="flex justify-center items-center space-x-6 mt-6">
-              <div class="team-member-card">
-              <img src="{{ asset('images/example.jpg') }}"  alt="Adam Gibson" class="team-member-img">
-                  <p class="team-member-name">Damon Walker</p>
-              </div>
-              <div class="team-member-card">
-              <img src="{{ asset('images/example.jpg') }}"  alt="Adam Gibson" class="team-member-img">
-                  <p class="team-member-name">Kelly Colmen</p>
-              </div>
-          </div>
-      </div>
-
-      <!-- Sales Charts Section -->
-      <div class="bg-white p-6 text-white">
-          <h3 class="text-2xl font-semibold mb-6 text-center">Sales Person Category Breakdown</h3>
-          <canvas id="categoryBreakdownChart" height="250"></canvas>
-      </div>
-  </div>
-
-
-</div>
-
-<!-- Updated CSS -->
-
-
-<!-- JavaScript for Chart.js -->
-<script>
-  // Category Breakdown Chart
-  const categoryBreakdownChart = new Chart(document.getElementById('categoryBreakdownChart'), {
-      type: 'bar',
-      data: {
-          labels: ['Adam Gibson', 'Angela Ross', 'Casey Alxer', 'Damon Walker', 'Kelly Colmen'],
-          datasets: [
-              {
-                  label: 'Restaurant',
-                  data: [120000, 130000, 100000, 110000, 95000],
-                  backgroundColor: '#0e51a7',
-              },
-              {
-                  label: 'Bar & Pub',
-                  data: [80000, 90000, 85000, 95000, 78000],
-                  backgroundColor: '#f97316',
-              },
-              {
-                  label: 'Cafe',
-                  data: [70000, 60000, 75000, 72000, 68000],
-                  backgroundColor: '#32CD32',
-              },
-              {
-                  label: 'Catering',
-                  data: [90000, 95000, 88000, 91000, 96000],
-                  backgroundColor: '#10b981',
-              },
-              {
-                  label: 'Takeaway',
-                  data: [100000, 105000, 90000, 115000, 98000],
-                  backgroundColor: '#facc15',
-              }
-          ]
-      },
-      options: {
-          responsive: true,
-          scales: {
-              x: { beginAtZero: true },
-              y: { beginAtZero: true }
-          }
-      }
-  });
-
-  // Weekly Sales Comparison Chart
-  const weeklySalesComparisonChart = new Chart(document.getElementById('weeklySalesComparisonChart'), {
-      type: 'line',
-      data: {
-          labels: ['Week 1 Oct', 'Week 2 Oct', 'Week 3 Oct', 'Week 4 Oct'],
-          datasets: [
-              {
-                  label: 'Adam Gibson',
-                  data: [120000, 130000, 110000, 115000],
-                  borderColor: '#0e51a7',
-                  fill: false
-              },
-              {
-                  label: 'Angela Ross',
-                  data: [110000, 120000, 105000, 100000],
-                  borderColor: '#f97316',
-                  fill: false
-              },
-              {
-                  label: 'Casey Alxer',
-                  data: [95000, 100000, 98000, 103000],
-                  borderColor: '#32CD32',
-                  fill: false
-              },
-              {
-                  label: 'Damon Walker',
-                  data: [105000, 100000, 110000, 115000],
-                  borderColor: '#facc15',
-                  fill: false
-              },
-              {
-                  label: 'Kelly Colmen',
-                  data: [115000, 125000, 120000, 130000],
-                  borderColor: '#10b981',
-                  fill: false
-              }
-          ]
-      },
-      options: {
-          responsive: true,
-          scales: {
-              x: { beginAtZero: true },
-              y: { beginAtZero: true }
-          }
-      }
-  });
-
-  // Product & Buyer Category Sales Chart
-  const productBuyerSalesChart = new Chart(document.getElementById('productBuyerSalesChart'), {
-      type: 'pie',
-      data: {
-          labels: ['Restaurant', 'Bar & Pub', 'Cafe', 'Catering', 'Takeaway'],
-          datasets: [{
-              data: [40, 30, 10, 10, 10],
-              backgroundColor: ['#0e51a7', '#f97316', '#32CD32', '#10b981', '#facc15'],
-          }]
-      },
-      options: {
-          responsive: true,
-          plugins: {
-              legend: {
-                  position: 'bottom'
-              }
-          }
-      }
-  });
-</script>
-
-
-       <!-- <div class="development_sales">
-        <div class="team-section">
-          <div>
-            <h2>Business Development Team</h2>
-        
-   
-            <div class="member-grid">
-              <div class="member-card">
-               
-            </div>
-              <div class="member-card"> <img class="developer_image" src="./images/developer.jpg" alt="">
-                <p class="developer_des">Adam Gibson</p> 
-              </div>
-              <div class="member-card"> <img class="developer_image" src="./images/developer.jpg" alt="">
-                <p class="developer_des">Adam Gibson</p> </div>
-            </div>
-          
-            <input type="checkbox" id="toggle">
-            <div class="member-grid more-members">
-              <div class="member-card">👤 Damon Walker</div>
-              <div class="member-card">👤 Kelly Colmen</div>
-              <div class="member-card">👤 Emma Stone</div>
-              <div class="member-card">👤 Jon Mark</div>
-              <div class="member-card">👤 Ryan Smith</div>
-            </div>
-          
-       
-            <label for="toggle" class="toggle-label">View All</label>
-          </div>
-
-        </div>
-        <div class="onti">
-<h2>onti</h2>
-        </div>
-       </div>
-       -->
-
-      
-    
-
- 
-      
-          <!-- Dashboard Section -->
-          <div class="max-w-screen-xl mx-auto p-6 space-y-12">
-
-            <!-- Top Selling Products and Sales Breakdown (Two Column Layout) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-                <!-- Sales Breakdown Chart -->
-                <div class="bg-white rounded-xl shadow-xl p-6">
-                    <h3 class="text-2xl font-semibold text-gray-700">Sales Breakdown by Product & Buyer Category</h3>
-                    <canvas id="salesBreakdownChart" class="mt-6"></canvas>
-                </div>
-                <div class="bg-gradient-to-r from-purple-800 via-indigo-700 to-blue-700 rounded-xl shadow-xl p-6 text-white">
-                  <h3 class="text-2xl text-center pb-4 font-semibold text-gray-700">Top Selling Products</h3>
-                    <div class=" justify-between items-center mb-6">
-                        
-                        <div class="lg:flex gap:2 space-x-4">
-                          <div class="inline-flex  gap-2">
-                        <button class="bg-purple-600 text-white px-4 py-2 rounded-lg focus:outline-none active:bg-purple-700">Current Month</button>
-                        <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg focus:outline-none hover:bg-gray-400">Previous Month</button>
+            });
+        </script>
+        <!-- Development team -->
+            <div class="max-w-4xl mx-auto p-6 bg-black rounded-lg shadow-md mt-6">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold text-white">Development Team Performance</h1>
+                    <div class="flex space-x-3">
+                        <button class="text-white hover:text-gray-700">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                        <button class="text-white hover:text-gray-700">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                            </svg>
+                        </button>
+                        <button class="text-white hover:text-gray-700">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
                     </div>
-                            <!-- Search Input -->
-                            <div class="relative">
-                                <input type="text" placeholder="Search..." class="w-48 px-4 py-2 rounded-full text-gray-800 focus:outline-none" />
-                                <div class="absolute top-2 right-2 text-gray-500">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
+                </div>
+        
+                <!-- Team Member 1 -->
+                <div class="flex items-center justify-between p-4 bg-[#7E7E7E] rounded-lg mb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="{{ asset('assets/orders/images/developer.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h2 class="text-lg font-semibold text-white">Logan Paul</h2>
+                            <p class="text-sm text-white">Backend Developer</p>
                         </div>
                     </div>
-        <!-- apple table -->
-                    <div class="overflow-hidden shadow rounded-lg ">
-                        <table class="min-w-full text-sm">
-                            <thead class="bg-gray-600">
-                                <tr>
-                                    <th class="py-3 px-6 text-left text-gray-100">Products</th>
-                                    <th class="py-3 px-6 text-left text-gray-100">Sales</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="hover:bg-gray-600 transition-all duration-300">
-                                    <td class="py-4 px-6 text-gray-100">Apple</td>
-                                    <td class="py-4 px-6 text-gray-100">$85,100.00</td>
-                                </tr>
-                                <tr class="hover:bg-gray-600 transition-all duration-300">
-                                    <td class="py-4 px-6 text-gray-100">Banana</td>
-                                    <td class="py-4 px-6 text-gray-100">$30,500.00</td>
-                                </tr>
-                                <tr class="hover:bg-gray-600 transition-all duration-300">
-                                    <td class="py-4 px-6 text-gray-100">Chicken Wings</td>
-                                    <td class="py-4 px-6 text-gray-100">$25,010.00</td>
-                                </tr>
-                                <tr class="hover:bg-gray-600 transition-all duration-300">
-                                    <td class="py-4 px-6 text-gray-100">Rib Eye</td>
-                                    <td class="py-4 px-6 text-gray-100">$22,409.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="text-2xl font-bold text-white">82%</div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-90"></div>
+                            <span class="progress-ring__value">90%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Animation Skill</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-74"></div>
+                            <span class="progress-ring__value">74%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Problem Solving</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-86"></div>
+                            <span class="progress-ring__value">86%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Work Consistency</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-78"></div>
+                            <span class="progress-ring__value">78%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Team Work</p>
+                    </div>
+                </div>
+        
+                <!-- Team Member 2 -->
+                <div class="flex items-center justify-between p-4 bg-[#7E7E7E] rounded-lg mb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="{{ asset('assets/orders/images/developer.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h2 class="text-lg font-semibold text-white">Logan Paul</h2>
+                            <p class="text-sm text-white">Backend Developer</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white">82%</div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-90"></div>
+                            <span class="progress-ring__value">90%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Animation Skill</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-74"></div>
+                            <span class="progress-ring__value">74%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Problem Solving</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-86"></div>
+                            <span class="progress-ring__value">86%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Work Consistency</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-78"></div>
+                            <span class="progress-ring__value">78%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Team Work</p>
+                    </div>
+                </div>
+        
+                <!-- Team Member 3 -->
+                <div class="flex items-center justify-between p-4 bg-[#7E7E7E] rounded-lg mb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="{{ asset('assets/orders/images/developer.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h2 class="text-lg font-semibold text-white">Logan Paul</h2>
+                            <p class="text-sm text-white">Backend Developer</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white">82%</div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-90"></div>
+                            <span class="progress-ring__value">90%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Animation Skill</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-74"></div>
+                            <span class="progress-ring__value">74%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Problem Solving</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-86"></div>
+                            <span class="progress-ring__value">86%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Work Consistency</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="progress-ring">
+                            <div class="progress-ring__background"></div>
+                            <div class="progress-ring__fill progress-78"></div>
+                            <span class="progress-ring__value">78%</span>
+                        </div>
+                        <p class="text-sm text-white mt-2">Team Work</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="mr-4 grid grid-cols-[30%_70%] gap-4">
+                <!-- Left Portion: Cards (40%) -->
+                <div class="grid gap-3 grid-cols-1">
+                    <!-- Card 1 -->
+                    <div class="bg-purple-400 rounded-xl h-20 p-4 flex items-center justify-between shadow">
+                        <div>
+                            <h3 class="text-xl font-bold">1520</h3>
+                            <span class="bg-red-500 text-white text-xs px-2 py-1 rounded">Orders received</span>
+                        </div>
+                        <img src="{{ asset('assets/orders/images/cash-on-delivery.png') }}" class="w-12 h-12" alt="icon" />
+                    </div>
+                
+                    <!-- Card 2 -->
+                    <div class="bg-green-400 rounded-xl h-20 p-4 flex items-center justify-between shadow">
+                        <div>
+                            <h3 class="text-xl font-bold">1428</h3>
+                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Orders served</span>
+                        </div>
+                        <img src="{{ asset('assets/orders/images/taco-truck.png') }}" class="w-12 h-12" alt="icon" />
+                    </div>
+                
+                    <!-- Card 3 -->
+                    <div class="bg-blue-400 rounded-xl p-4 h-20 flex items-center justify-between shadow">
+                        <div >
+                            <h3 class="text-xl font-bold">30</h3>
+                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Pending orders</span>
+                        </div>
+                        <img src="{{ asset('assets/orders/images/clock.png') }}" class="w-12 h-12" alt="icon" />
+                    </div>
+                
+                    <!-- Card 4 -->
+                    <div class="bg-red-400 rounded-xl p-4 h-20 flex items-center justify-between shadow">
+                        <div>
+                            <h3 class="text-xl font-bold">$105</h3>
+                            <span class="bg-pink-500 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
+                        </div>
+                        <img src="{{ asset('assets/orders/images/eating.png') }}" class="w-12 h-12" alt="icon" />
+                    </div>
+                </div>
+        
+                <!-- Right Portion: Chart and Top Selling Dishes (60%) -->
+                <div class="flex flex-col gap-4">
+                    <div class="bg-[#7E7E7E] p-6 rounded-lg shadow-md">
+                        <h1 class="text-xl font-bold mb-6">Monthly Sales Performance</h1>
+                        
+                        <!-- Chart Container -->
+                        <div class="relative h-64">
+                            <canvas id="salesChart"></canvas>
+                        </div>
                     </div>
         
+                    <!-- Top Selling Dishes -->
+                   
+                </div>
+            </div>
+        
+            <script>
+                const ctx = document.getElementById('salesChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Oct', 'Jan', 'Sep', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+                        datasets: [
+                            {
+                                label: 'Orders Received',
+                                data: [5, 10, 5, 10, 2, 5, 2, 10, 5, 10],
+                                backgroundColor: '#D3D3D3',
+                                barThickness: 20,
+                            },
+                            {
+                                label: 'Orders Served',
+                                data: [10, 15, 12, 5, 10, 10, 5, 5, 15, 15],
+                                backgroundColor: '#FF6200',
+                                barThickness: 20,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 20,
+                                ticks: {
+                                    stepSize: 5,
+                                    color: '#ffffff',
+                                },
+                                grid: {
+                                    color: '#ffffff',
+                                },
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#FFFFFF',
+                                },
+                                grid: {
+                                    display: false,
+                                },
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#FFFFFF',
+                                    padding: 20,
+                                },
+                            },
+                        },
+                    }
+                });
+            </script>
+        
+        <div class="bg-white rounded-xl p-6 shadow w-full">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-lg font-semibold">Top selling dishes</h2>
+                    <span class="text-green-500 text-sm">↑ 5.3% More order</span>
+                </div>
+                <a href="#" class="text-yellow-500 text-sm font-medium">View all</a>
+            </div>
+          
+            <div class="space-y-4">
+                <!-- Dish 1 -->
+                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
+                        <span class="font-medium">Cheese & Corn Momos</span>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm">$125</div>
+                        <div class="text-green-500 text-sm">↑ 32%</div>
+                    </div>
+                </div>
+            
+                <!-- Dish 2 -->
+                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                    <div class="flex  items-center gap-3">
+                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
+                        <span class="font-medium">French Fry</span>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm">$125</div>
+                        <div class="text-green-500 text-sm">↑ 32%</div>
+                    </div>
+                </div>
+            
+                <!-- Dish 3 -->
+                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
+                        <span class="font-medium">Cheese Burger</span>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm">$125</div>
+                        <div class="text-green-500 text-sm">↑ 32%</div>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Buyer Performance Card -->
-        <div class="max-w-screen-xl mx-auto p-6 space-y-12">
-
-          <!-- Buyer Performance Section -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      
-              <!-- Buyer Performance Table -->
-              <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 rounded-xl shadow-xl p-6 text-white">
-                  <h3 class="text-2xl font-semibold mb-6">Buyer Performance</h3>
-      
-                  <!-- Month Selector (October) -->
-                  <div class="lg:flex gap:2  justify-between items-center mb-4">
-                      <div class="flex items-center">
-                          <span class="text-lg font-semibold">October</span>
-                          <button class="ml-4 text-blue-300 hover:text-white">Change Month</button>
-                      </div>
-                      <input type="text" placeholder="Search" class="px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-300 focus:outline-none" />
-                  </div>
-      
-                  <!-- Buyer Accounts Table -->
-                  <div class="overflow-auto">
-                      <table class="min-w-full text-sm">
-                          <thead class="bg-gray-600">
-                              <tr>
-                                  <th class="py-3 px-6 text-left">Buyer Accounts</th>
-                                  <th class="py-3 px-6 text-left">Sales</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr class="hover:bg-gray-700 transition-all duration-300">
-                                  <td class="py-4 px-6">Mixing Pot</td>
-                                  <td class="py-4 px-6">$51,101.00</td>
-                              </tr>
-                              <tr class="hover:bg-gray-700 transition-all duration-300">
-                                  <td class="py-4 px-6">Americano</td>
-                                  <td class="py-4 px-6">$30,500.00</td>
-                              </tr>
-                              <tr class="hover:bg-gray-700 transition-all duration-300">
-                                  <td class="py-4 px-6">The Steak Club House</td>
-                                  <td class="py-4 px-6">$25,010.00</td>
-                              </tr>
-                              <tr class="hover:bg-gray-700 transition-all duration-300">
-                                  <td class="py-4 px-6">Aria Sydney</td>
-                                  <td class="py-4 px-6">$20,499.00</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-      
-              <!-- Buyer Performance Monthly View (Bar Chart) -->
-              <div class="bg-gradient-to-r from-green-700 via-teal-700 to-blue-700 rounded-xl shadow-xl p-6 text-white">
-                  <h3 class="text-2xl font-semibold mb-6">Buyer Performance Monthly View</h3>
-      
-                  <!-- Month Tabs (July, August, September, October) -->
-                  <div class="lg:flex gap:1  space-x-4 mb-6">
-                      <button class="text-lg bg-indigo-600 hover:bg-indigo-500 px-5 py-2 rounded-lg">July</button>
-                      <button class="text-lg bg-indigo-600 hover:bg-indigo-500 px-5 py-2 rounded-lg">August</button>
-                      <button class="text-lg bg-indigo-600 hover:bg-indigo-500 px-5 py-2 rounded-lg">September</button>
-                      <button class="text-lg bg-indigo-600 hover:bg-indigo-500 px-5 py-2 rounded-lg">October</button>
-                  </div>
-      
-                  <!-- Monthly Performance Chart -->
-                  <div class="w-full">
-                      <canvas id="monthlyPerformanceChart"></canvas>
-                  </div>
-              </div>
-      
-          </div>
-      
       </div>
-      
 
+      <!-- Right Column -->
+      <div class="bg-[#7E7E7E] lg:col-span-3">
+        <div class="  p-6 w-full max-w-md rounded-lg">
+            <!-- Header with title and dropdown -->
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-semibold">Trending Menus</h2>
+              <button class="flex items-center bg-white px-3 py-1 rounded-lg text-sm text-gray-700 shadow-sm">
+                This Week
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+          
+            <!-- Menu Cards -->
+            <div class="space-y-4">
+          
+              <!-- Card 1 -->
+              <div class="bg-black rounded-xl p-4 shadow-sm flex flex-col">
+                <img src="{{ asset('assets/orders/images/Tandoori-Chicken-20.jpg') }}" alt="Grilled Chicken" class="rounded-lg mb-3 object-cover w-full h-40" />
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold text-white">Grilled Chicken Delight</h3>
+                    <p class="text-sm text-white">Chicken</p>
+                    <div class="flex items-center text-sm text-gray-600 mt-1 gap-4">
+                      <span class="flex items-center text-white gap-1">
+                        ⭐ 4.9
+                      </span>
+                      <span class="text-white">350</span>
+                    </div>
+                  </div>
+                  <div class="text-orange-500 font-semibold text-sm">$18.00</div>
+                </div>
+              </div>
+          
+              <!-- Card 2 -->
+              <div class="bg-black rounded-xl p-4 shadow-sm flex flex-col">
+                <img src="{{ asset('assets/orders/images/orange_cake.jpg') }}" alt="Citrus Cake" class="rounded-lg mb-3 object-cover w-full h-40" />
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold text-white">Sunny Citrus Cake</h3>
+                    <p class="text-sm text-gray-500 text-white">Dessert</p>
+                    <div class="flex items-center text-sm text-gray-600 mt-1 gap-4">
+                      <span class="flex items-center text-white gap-1">
+                        ⭐ 4.8
+                      </span>
+                      <span class="text-white">400</span>
+                    </div>
+                  </div>
+                  <div class="text-orange-500 font-semibold text-sm">$8.50</div>
+                </div>
+              </div>
+          
+              <!-- Card 3 -->
+              <div class="bg-black rounded-xl p-4 shadow-sm flex flex-col">
+                <img src="{{ asset('assets/orders/images/shrimp-avocado-tomato-salad.webp') }}" alt="Shrimp Salad" class="rounded-lg mb-3 object-cover w-full h-40" />
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold text-white">Fiery Shrimp Salad</h3>
+                    <p class="text-sm text-gray-500 text-white">Seafood</p>
+                    <div class="flex items-center text-sm text-gray-600 mt-1 gap-4">
+                      <span class="flex items-center gap-1 text-white">
+                        ⭐ 4.7
+                      </span>
+                      <span class="text-white">270</span>
+                    </div>
+                  </div>
+                  <div class="text-orange-500 font-semibold text-sm">$12.00</div>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+          
+
+        <div class="bg-black m-4 rounded-xl  p-4 shadow">
+          <h3 class="font-semibold text-white text-lg mb-4">Order Types</h3>
+          <div class="space-y-2">
+            <div class="flex justify-between"><span class="text-white">Dine-In</span><span class="text-white">900</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div class="bg-orange-500 h-2.5 rounded-full" style="width: 45%"></div>
+            </div>
+            <div class="flex justify-between"><span class="text-white">Takeaway</span><span class="text-white">600</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div class="bg-orange-400 h-2.5  rounded-full" style="width: 30%"></div>
+            </div>
+            <div class="flex justify-between"><span class="text-white">Online</span><span class="text-white">500</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div class="bg-orange-300 h-2.5 rounded-full" style="width: 25%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trending Menus (Static Sample) -->
+        
+
+      </div>
     </div>
-
-    <!-- Chart.js Initialization -->
-    <script>
-        // Sales Breakdown by Product & Buyer Category Chart
-        const salesBreakdownChart = new Chart(document.getElementById("salesBreakdownChart"), {
-            type: 'bar',
-            data: {
-                labels: ['July', 'August', 'September', 'October'],
-                datasets: [
-                    {
-                        label: 'Restaurants',
-                        data: [120000, 150000, 130000, 145000],
-                        backgroundColor: '#0e51a7',
-                    },
-                    {
-                        label: 'Cafe',
-                        data: [90000, 110000, 95000, 105000],
-                        backgroundColor: '#964B00',
-                    },
-                    {
-                        label: 'Takeaway',
-                        data: [85000, 90000, 80000, 95000],
-                        backgroundColor: '#32CD32',
-                    },
-                    {
-                        label: 'Bar & Pub',
-                        data: [70000, 80000, 75000, 70000],
-                        backgroundColor: '#f59e0b',
-                    },
-                    {
-                        label: 'Catering',
-                        data: [60000, 65000, 62000, 69000],
-                        backgroundColor: '#ec4899',
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                    }
-                },
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                }
-            }
-        });
-
-        // Buyer Performance Monthly View Chart
-  // Monthly Performance Bar Chart
-  const monthlyPerformanceChart = new Chart(document.getElementById("monthlyPerformanceChart"), {
-        type: 'bar',
-        data: {
-            labels: ['Cafe Americano', 'Mixing Pot', 'Hospitality', 'Popeye', 'KFC', 'Pizza Hut', 'Monopole'],
-            datasets: [{
-                label: 'July',
-                data: [7000, 8500, 5500, 6000, 4000, 4500, 3000],
-                backgroundColor: '#3b82f6',
-                borderRadius: 8,
-            }, {
-                label: 'August',
-                data: [8000, 9000, 7000, 6500, 5000, 5500, 4000],
-                backgroundColor: '#10b981',
-                borderRadius: 8,
-            }, {
-                label: 'September',
-                data: [7500, 9500, 8000, 7000, 6000, 6000, 4500],
-                backgroundColor: '#f97316',
-                borderRadius: 8,
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: 'white',
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: 'white',
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: 'white',
-                    }
-                },
-                tooltip: {
-                    bodyColor: 'white',
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    titleColor: 'white',
-                }
-            }
-        }
-    });
-    </script>
-
-</body>
-</html>
+  </div>
+@endsection
