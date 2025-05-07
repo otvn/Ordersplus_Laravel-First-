@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('styles/orders.css') }}">
-    <script src="https://kit.fontawesome.com/ba715376e0.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body class="bg-gradient-to-r from-indigo-700 to-purple-800">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Link CSS -->
+<link rel="stylesheet" href="{{ asset('assets/orders/styles/new.css') }}">
+<body class="bg-[#1a1a1a] text-gray-800">
 
     @yield('content')
 
