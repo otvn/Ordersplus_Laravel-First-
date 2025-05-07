@@ -119,7 +119,7 @@
 
    
 
-          <div class="max-w-3xl mx-auto grid grid-cols-2 gap-6">
+          <div class="max-w-3xl mx-auto grid lg:grid-cols-2  gap-6">
             <!-- Total Revenue Section -->
             <div class="bg-[#7E7E7E] p-6 rounded-lg shadow-md">
                 <div class="flex justify-between items-center mb-4">
@@ -282,15 +282,15 @@
                         </div>
                     </div>
                     <div class="text-2xl font-bold text-white">82%</div>
-                    <div class="text-center">
-                        <div class="progress-ring">
+                    <div class="text-center hidden lg:block ">
+                        <div class="progress-ring ">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-90"></div>
                             <span class="progress-ring__value">90%</span>
                         </div>
                         <p class="text-sm text-white mt-2">Animation Skill</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block ">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-74"></div>
@@ -298,7 +298,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Problem Solving</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block ">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-86"></div>
@@ -306,7 +306,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Work Consistency</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block ">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-78"></div>
@@ -326,7 +326,7 @@
                         </div>
                     </div>
                     <div class="text-2xl font-bold text-white">82%</div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-90"></div>
@@ -334,7 +334,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Animation Skill</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-74"></div>
@@ -342,7 +342,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Problem Solving</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-86"></div>
@@ -350,7 +350,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Work Consistency</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-78"></div>
@@ -370,7 +370,7 @@
                         </div>
                     </div>
                     <div class="text-2xl font-bold text-white">82%</div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-90"></div>
@@ -378,7 +378,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Animation Skill</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-74"></div>
@@ -386,7 +386,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Problem Solving</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-86"></div>
@@ -394,7 +394,7 @@
                         </div>
                         <p class="text-sm text-white mt-2">Work Consistency</p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center hidden lg:block">
                         <div class="progress-ring">
                             <div class="progress-ring__background"></div>
                             <div class="progress-ring__fill progress-78"></div>
@@ -405,7 +405,7 @@
                 </div>
             </div>
         
-            <div class="mr-4 grid grid-cols-[30%_70%] gap-4">
+            <div class="mr-4 grid lg:grid-cols-[30%_70%] gap-4">
                 <!-- Left Portion: Cards (40%) -->
                 <div class="grid gap-3 grid-cols-1">
                     <!-- Card 1 -->
@@ -418,7 +418,7 @@
                     </div>
                 
                     <!-- Card 2 -->
-                    <div class="bg-green-400 rounded-xl h-20 p-4 flex items-center justify-between shadow">
+                    <div class="bg-red-400 rounded-xl h-20 p-4 flex items-center justify-between shadow">
                         <div>
                             <h3 class="text-xl font-bold">1428</h3>
                             <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Orders served</span>
@@ -427,7 +427,7 @@
                     </div>
                 
                     <!-- Card 3 -->
-                    <div class="bg-blue-400 rounded-xl p-4 h-20 flex items-center justify-between shadow">
+                    <div class="bg-green-400 rounded-xl p-4 h-20 flex items-center justify-between shadow">
                         <div >
                             <h3 class="text-xl font-bold">30</h3>
                             <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Pending orders</span>
@@ -436,7 +436,7 @@
                     </div>
                 
                     <!-- Card 4 -->
-                    <div class="bg-red-400 rounded-xl p-4 h-20 flex items-center justify-between shadow">
+                    <div class="bg-[#FF6200] rounded-xl p-4 h-20 flex items-center justify-between shadow">
                         <div>
                             <h3 class="text-xl font-bold">$105</h3>
                             <span class="bg-pink-500 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
@@ -445,7 +445,7 @@
                     </div>
                 </div>
         
-                <!-- Right Portion: Chart and Top Selling Dishes (60%) -->
+                <!-- R-Monthly Sales Performence -->
                 <div class="flex flex-col gap-4">
                     <div class="bg-[#7E7E7E] p-6 rounded-lg shadow-md">
                         <h1 class="text-xl font-bold mb-6">Monthly Sales Performance</h1>
@@ -519,53 +519,90 @@
                 });
             </script>
         
-        <div class="bg-white rounded-xl p-6 shadow w-full">
-            <div class="flex justify-between items-center mb-4">
-                <div>
-                    <h2 class="text-lg font-semibold">Top selling dishes</h2>
-                    <span class="text-green-500 text-sm">↑ 5.3% More order</span>
-                </div>
-                <a href="#" class="text-yellow-500 text-sm font-medium">View all</a>
-            </div>
-          
-            <div class="space-y-4">
-                <!-- Dish 1 -->
-                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
-                    <div class="flex items-center gap-3">
-                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
-                        <span class="font-medium">Cheese & Corn Momos</span>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-sm">$125</div>
-                        <div class="text-green-500 text-sm">↑ 32%</div>
-                    </div>
-                </div>
-            
-                <!-- Dish 2 -->
-                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
-                    <div class="flex  items-center gap-3">
-                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
-                        <span class="font-medium">French Fry</span>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-sm">$125</div>
-                        <div class="text-green-500 text-sm">↑ 32%</div>
-                    </div>
-                </div>
-            
-                <!-- Dish 3 -->
-                <div class="flex justify-between items-center bg-blue-50 rounded-lg p-3">
-                    <div class="flex items-center gap-3">
-                        <img src="https://via.placeholder.com/40" class="rounded-full w-10 h-10" />
-                        <span class="font-medium">Cheese Burger</span>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-sm">$125</div>
-                        <div class="text-green-500 text-sm">↑ 32%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="bg-[#7E7E7E] mt-10 shadow-lg rounded-lg p-6">
+<h2 class="text-2xl font-bold text-black-300 mb-6">Recent Online Orders</h2>
+
+    <table class="min-w-full table-auto">
+      <thead >
+        <tr class="bg-red-400 ">
+          <th class=" px-4 py-2 text-left text-sm  text-white ">Order Id</th>
+          <th class="  px-4 py-2 text-left text-sm text-white">Customer</th>
+          <th class="px-4 py-2 text-left text-sm text-white">Food</th>
+          <th class=" px-4 py-2 text-left text-sm text-white">Phone</th>
+          <th class="  px-4 py-2 text-left text-sm text-white">Price</th>
+          <th class=" px-4 py-2 text-left text-sm text-white">Status</th>
+          <th class="px-4 py-2 text-left text-sm text-white">Actions</th>
+        </tr>
+      </thead>
+      <tbody >
+        <!-- First Row -->
+        <tr class="border-b">
+          <td class="px-4 py-2 text-white text-sm">#25896</td>
+          <td class="px-4 py-2 text-white text-sm">Jefferson Clay</td>
+          <td class="px-4 py-2 text-sm flex items-center space-x-2">
+            <img src="{{ asset('assets/orders/images/orange_cake.jpg') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
+            <span class="text-white">Chicken Burger</span>
+          </td>
+          <td class="px-4 py-2 text-white text-sm">+99 256 896 8855</td>
+          <td class="px-4 py-2 text-white text-sm">$11.00</td>
+          <td class="px-4 py-2 text-base text-green-500">Accepted</td>
+          <td class="px-4 py-2 text-sm">
+            <button class="bg-green-500 text-white px-6 py-2 mb-2 rounded-lg mr-2">Accept</button>
+            <button class="bg-red-500 text-white px-6 py-2 rounded-lg">Decline</button>
+          </td>
+        </tr>
+
+        <!-- Second Row -->
+        <tr class="border-b">
+          <td class="px-4 py-2 text-white text-sm">#27856</td>
+          <td class="px-4 py-2 text-white text-sm">Langston Lee</td>
+          <td class="px-4 py-2 text-sm flex items-center space-x-2">
+            <img src="{{ asset('assets/orders/images/shrimp-avocado-tomato-salad.webp') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
+            <span class="text-white">Pizza Chicken Bake</span>
+          </td>
+          <td class="px-4 py-2 text-white text-sm">+99 963 852 7744</td>
+          <td class="px-4 py-2 text-white text-sm">$50.00</td>
+          <td class="px-4 py-2 text-base text-yellow-500">Pending</td>
+          <td class="px-4 py-2 text-sm">
+            <button class="bg-green-500 text-white px-6 mb-2 py-2 rounded-lg mr-2">Accept</button>
+            <button class="bg-red-500 text-white px-6 py-2 rounded-lg">Decline</button>
+          </td>
+        </tr>
+
+        <!-- Third Row -->
+        <tr class="border-b">
+          <td class="px-4 py-2 text-white text-sm">#23698</td>
+          <td class="px-4 py-2 text-white text-sm">Bronson Joe</td>
+          <td class="px-4 py-2 text-sm flex items-center space-x-2">
+            <img src="{{ asset('assets/orders/images/Tandoori-Chicken-20.jpg') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
+            <span class="text-white">Eco Chowmen</span>
+          </td>
+          <td class="px-4 py-2 text-white text-sm">+99 125 965 8544</td>
+          <td class="px-4 py-2 text-white text-sm">$68.00</td>
+          <td class="px-4 py-2 text-base text-yellow-500">Pending</td>
+          <td class="px-4 py-2 text-sm">
+            <button class="bg-green-500 text-white mb-2 px-6 py-2 rounded-lg mr-2">Accept</button>
+            <button class="bg-red-500 text-white px-6  py-2 rounded-lg">Decline</button>
+          </td>
+        </tr>
+        <tr class="border-b">
+          <td class="px-4 py-2 text-white text-sm">#23698</td>
+          <td class="px-4 py-2 text-white text-sm">Bronson Joe</td>
+          <td class="px-4 py-2 text-sm flex items-center space-x-2">
+            <img src="{{ asset('assets/orders/images/shrimp-avocado-tomato-salad.webp') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
+            <span class="text-white">Eco Chowmen</span>
+          </td>
+          <td class="px-4 py-2 text-white text-sm">+99 125 965 8544</td>
+          <td class="px-4 py-2 text-white text-sm">$68.00</td>
+          <td class="px-4 py-2 text-base text-yellow-500">Pending</td>
+          <td class="px-4 py-2 text-sm">
+            <button class="bg-green-500 text-white mb-2 px-6 py-2 rounded-lg mr-2">Accept</button>
+            <button class="bg-red-500 text-white px-6  py-2 rounded-lg">Decline</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
         
       </div>
 
@@ -662,8 +699,112 @@
           </div>
         </div>
 
-        <!-- Trending Menus (Static Sample) -->
-        
+        <!-- Customer Review -->
+         <!-- Container for all cards -->
+  <div class="bg-[#7E7E7E] w-full max-w-4xl p-6 rounded-lg shadow-lg space-y-6">
+    <!-- Title -->
+
+
+    <!-- First Card -->
+    <div class="bg-black w-full p-6 rounded-lg shadow-lg">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-3xl text-red-500">“</span>
+          <h2 class="text-xl font-semibold text-white">Customer Review</h2>
+        </div>
+        <div class="text-red-500 font-bold text-lg">
+          5 <span class="text-white">/ 5</span>
+        </div>
+      </div>
+
+      <p class="text-white text-base mb-4 ">Very tasty food. Staffs are very much friendly and well behaved. Nice ambiance also location is in city center.</p>
+
+      <div class="flex items-center">
+        <div class="w-12 h-12 rounded-full overflow-hidden">
+          <img src="{{ asset('assets/orders/images/man1.jpg') }}" alt="Customer Photo" class="w-full h-full object-cover">
+        </div>
+        <div class="ml-4">
+          <h3 class="font-semibold text-lg text-white">Afsar Ali</h3>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center space-x-2">
+        <div class="flex items-center text-yellow-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" stroke="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M9.049 2.927a1 1 0 011.902 0l1.387 3.062 3.383.495a1 1 0 01.553 1.705l-2.445 2.389.577 3.373a1 1 0 01-1.452 1.053l-3.024-1.592-3.025 1.592a1 1 0 01-1.452-1.053l.577-3.373-2.445-2.389a1 1 0 01.553-1.705l3.383-.495L9.049 2.927z" clip-rule="evenodd" />
+          </svg>
+          <span class="ml-1">5 Stars</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="bg-black w-full p-6 rounded-lg shadow-lg">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-3xl text-red-500">“</span>
+          <h2 class="text-xl font-semibold text-white">Customer Review</h2>
+        </div>
+        <div class="text-red-500 font-bold text-lg">
+          5 <span class="text-white">/ 5</span>
+        </div>
+      </div>
+
+      <p class="text-white text-base mb-4">Amazing experience! The food was delicious, and the service was top-notch. Definitely recommend.</p>
+
+      <div class="flex items-center">
+        <div class="w-12 h-12 rounded-full overflow-hidden">
+          <img src="{{ asset('assets/orders/images/women.jpg') }}" alt="Customer Photo" class="w-full h-full object-cover">
+        </div>
+        <div class="ml-4">
+          <h3 class="font-semibold text-lg text-white">Nausin Onti</h3>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center space-x-2">
+        <div class="flex items-center text-yellow-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" stroke="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M9.049 2.927a1 1 0 011.902 0l1.387 3.062 3.383.495a1 1 0 01.553 1.705l-2.445 2.389.577 3.373a1 1 0 01-1.452 1.053l-3.024-1.592-3.025 1.592a1 1 0 01-1.452-1.053l.577-3.373-2.445-2.389a1 1 0 01.553-1.705l3.383-.495L9.049 2.927z" clip-rule="evenodd" />
+          </svg>
+          <span class="ml-1">5 Stars</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Card -->
+    <div class="bg-black w-full p-6 rounded-lg shadow-lg">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-3xl text-red-500">“</span>
+          <h2 class="text-xl font-semibold text-white">Customer Review</h2>
+        </div>
+        <div class="text-red-500 font-bold text-lg">
+          5 <span class="text-white">/ 5</span>
+        </div>
+      </div>
+
+      <p class="text-white text-base mb-4">Highly recommend this place! Great atmosphere and the food was absolutely delicious!</p>
+
+      <div class="flex items-center">
+        <div class="w-12 h-12 rounded-full overflow-hidden">
+          <img src="{{ asset('assets/orders/images/man2.jpg') }}" alt="Customer Photo" class="w-full h-full object-cover">
+        </div>
+        <div class="ml-4">
+          <h3 class="font-semibold  text-lg text-white">Sarah Khan</h3>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center space-x-2">
+        <div class="flex items-center text-yellow-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" stroke="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M9.049 2.927a1 1 0 011.902 0l1.387 3.062 3.383.495a1 1 0 01.553 1.705l-2.445 2.389.577 3.373a1 1 0 01-1.452 1.053l-3.024-1.592-3.025 1.592a1 1 0 01-1.452-1.053l.577-3.373-2.445-2.389a1 1 0 01.553-1.705l3.383-.495L9.049 2.927z" clip-rule="evenodd" />
+          </svg>
+          <span class="ml-1">5 Stars</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
       </div>
     </div>
