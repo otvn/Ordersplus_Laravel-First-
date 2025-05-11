@@ -55,64 +55,107 @@
             <!-- Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               <!-- Card 1 -->
-              <div class="bg-blue-400 text-black rounded-xl p-4 flex justify-between items-center">
-                <div>
-                  <div class="text-lg font-bold">$11,256</div>
-                  <div class="text-sm">Today's Revenue</div>
-                </div>
-                <div class="bg-black p-2 rounded-full">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 8c-1.657 0-3 1.343-3 3v4m3-7c1.657 0 3 1.343 3 3v4m-6 0h6" />
-                  </svg>
-                </div>
-              </div>
-          
+<div class="bg-blue-400 text-black rounded-xl p-4 flex justify-between items-center">
+    <div>
+        <div class="text-lg font-bold">
+            <!-- Directly access Today's Revenue KPI -->
+            @php
+                $todayRevenue = $kpis->where('name', 'Today\'s Revenue')->first();
+            @endphp
+            @if($todayRevenue)
+                ${{ number_format($todayRevenue->value) }}  <!-- Display value with dollar sign -->
+            @endif
+        </div>
+        <div class="text-sm">Today's Revenue</div>
+    </div>
+    <div class="bg-black p-2 rounded-full">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 8c-1.657 0-3 1.343-3 3v4m3-7c1.657 0 3 1.343 3 3v4m-6 0h6" />
+        </svg>
+    </div>
+</div>
+
+
               <!-- Card 2 -->
-              <div class="bg-red-400 text-black rounded-xl p-4 flex justify-between items-center">
-                <div>
-                  <div class="text-lg font-bold">245</div>
-                  <div class="text-sm">Today's Order</div>
-                </div>
-                <div class="bg-black p-2 rounded-full">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M3 10h2l1 2h13l1-2h2m-4 4h-1a4 4 0 00-8 0H7m2 4h6" />
-                  </svg>
-                </div>
-              </div>
-          
+
+<!-- Card for Today's Orders -->
+<div class="bg-red-400 text-black rounded-xl p-4 flex justify-between items-center">
+    <div>
+        <div class="text-lg font-bold">
+            <!-- Directly access Today's Orders KPI without looping -->
+            @php
+                $todayOrders = $kpis->firstWhere('name', 'Today\'s Orders'); // Fetch the specific KPI
+            @endphp
+
+            @if($todayOrders)
+            ${{ number_format($todayOrders->value) }} 
+                  <!-- Display the value for Today's Orders -->
+            @endif
+        </div>
+        <div class="text-sm">Today's Orders</div>
+    </div>
+    <div class="bg-black p-2 rounded-full">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 10h2l1 2h13l1-2h2m-4 4h-1a4 4 0 00-8 0H7m2 4h6" />
+        </svg>
+    </div>
+</div>
+
               <!-- Card 3 -->
-              <div class="bg-[#9CA3AF] text-black rounded-xl p-4 flex justify-between items-center">
-                <div>
-                  <div class="text-lg font-bold">$6,556</div>
-                  <div class="text-sm">Avg. Expense</div>
-                </div>
-                <div class="bg-black p-2 rounded-full">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-              </div>
+             <!-- Card for Avg. Expense -->
+<div class="bg-gray-400 text-black rounded-xl p-4 flex justify-between items-center">
+    <div>
+        <div class="text-lg font-bold">
+            <!-- Directly access Avg. Expense KPI without looping -->
+            @php
+                $avgExpense = $kpis->firstWhere('name', 'Avg. Expense'); // Fetch the specific KPI
+            @endphp
+
+            @if($avgExpense)
+                ${{ number_format($avgExpense->value) }}  <!-- Display the value for Avg. Expense with dollar sign -->
+            @endif
+        </div>
+        <div class="text-sm">Avg. Expense</div>
+    </div>
+    <div class="bg-black p-2 rounded-full">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5 13l4 4L19 7" />
+        </svg>
+    </div>
+</div>
+
           
               <!-- Card 4 -->
-              <div class="bg-purple-400 text-black rounded-xl p-4 flex justify-between items-center">
-                <div>
-                  <div class="text-lg font-bold">$4,227</div>
-                  <div class="text-sm">Avg. Revenue</div>
-                </div>
-                <div class="bg-black p-2 rounded-full">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M9 14l6-6m0 0l-6-6m6 6H3" />
-                  </svg>
-                </div>
-              </div>
+              <!-- Card for Avg. Revenue -->
+<div class="bg-purple-400 text-black rounded-xl p-4 flex justify-between items-center">
+    <div>
+        <div class="text-lg font-bold">
+            <!-- Directly access Avg. Revenue KPI without looping -->
+            @php
+                $avgRevenue = $kpis->firstWhere('name', 'Avg. Revenue'); // Fetch the specific KPI
+            @endphp
+
+            @if($avgRevenue)
+                ${{ number_format($avgRevenue->value) }}  <!-- Display the value for Avg. Revenue with dollar sign -->
+            @endif
+        </div>
+        <div class="text-sm">Avg. Revenue</div>
+    </div>
+    <div class="bg-black p-2 rounded-full">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 14l6-6m0 0l-6-6m6 6H3" />
+        </svg>
+    </div>
+</div>
+
             </div>
           </div>
           
