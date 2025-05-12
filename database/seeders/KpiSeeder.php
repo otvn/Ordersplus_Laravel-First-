@@ -12,7 +12,7 @@ class KpiSeeder extends Seeder
         // Update or create the KPI data
         Kpi::updateOrCreate(
             ['name' => 'Today\'s Revenue'], // Unique identifier (name)
-            ['value' => 17256] // New data to update
+            ['value' => 172.56] // New data to update
         );
 
         Kpi::updateOrCreate(

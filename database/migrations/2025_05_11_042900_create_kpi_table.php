@@ -11,23 +11,26 @@ return new class extends Migration
      *
      * @return void
      */
-   public function up()
+public function up()
 {
     Schema::create('kpis', function (Blueprint $table) {
         $table->id();
-        $table->string('name');
-        $table->integer('value');
-        $table->timestamps();
+        $table->string('name');  // Name of the KPI (e.g., "Today's Revenue")
+        $table->decimal('value', 10, 2);  
+        $table->timestamps();  
     });
 }
+
 
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('kpi');
-    }
+public function down()
+{
+    Schema::dropIfExists('kpis');  
+}
+
+
 };
