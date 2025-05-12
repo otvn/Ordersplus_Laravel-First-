@@ -29,7 +29,7 @@ class OrderSeeder extends Seeder
             'delivery_status' => 'Pending',
         ]);
         Order::create([
-            'restaurant' => 'Restaurant N',
+            'restaurant' => 'Restaurant Onti',
             'product_name' => 'Pizza ',
             'product_image' => 'orange_cake.jpg',
             'phone' => '+99 863 852 7744',
