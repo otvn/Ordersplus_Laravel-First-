@@ -37,6 +37,7 @@ class OrderSeeder extends Seeder
             'status' => 'Pending',
             'delivery_status' => 'Pending',
         ]);
+    
 
         // Add more orders as needed...
     }

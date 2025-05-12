@@ -63,7 +63,7 @@
                 $todayRevenue = $kpis->where('name', 'Today\'s Revenue')->first();
             @endphp
             @if($todayRevenue)
-                ${{ number_format($todayRevenue->value) }}  <!-- Display value with dollar sign -->
+                ${{ number_format($todayRevenue->value) }}  
             @endif
         </div>
         <div class="text-sm">Today's Revenue</div>
@@ -483,42 +483,43 @@
             <div class="mr-4 mt-6 grid lg:grid-cols-[30%_70%] gap-4">
                 <!-- Left Portion: Cards (40%) -->
                 <div class="grid gap-3 grid-cols-1">
-                    <!-- Card 1 -->
-                    <div class="bg-white rounded-xl h-20 p-4 flex items-center justify-between shadow">
-                        <div>
-                            <h3 class="text-xl font-bold">1520</h3>
-                            <span class="bg-gray-400 text-white text-xs px-2 py-1 rounded">Orders received</span>
-                        </div>
-                        <img src="{{ asset('assets/orders/images/cash-on-delivery.png') }}" class="w-12 h-12" alt="icon" />
-                    </div>
-                
-                    <!-- Card 2 -->
-                    <div class="bg-white rounded-xl h-20 p-4 flex items-center justify-between shadow">
-                        <div>
-                            <h3 class="text-xl font-bold">1428</h3>
-                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Orders served</span>
-                        </div>
-                        <img src="{{ asset('assets/orders/images/taco-truck.png') }}" class="w-12 h-12" alt="icon" />
-                    </div>
-                
-                    <!-- Card 3 -->
-                    <div class="bg-white rounded-xl p-4 h-20 flex items-center justify-between shadow">
-                        <div >
-                            <h3 class="text-xl font-bold">30</h3>
-                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Pending orders</span>
-                        </div>
-                        <img src="{{ asset('assets/orders/images/clock.png') }}" class="w-12 h-12" alt="icon" />
-                    </div>
-                
-                    <!-- Card 4 -->
-                    <div class="bg-white rounded-xl p-4 h-20 flex items-center justify-between shadow">
-                        <div>
-                            <h3 class="text-xl font-bold">$105</h3>
-                            <span class="bg-purple-400 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
-                        </div>
-                        <img src="{{ asset('assets/orders/images/eating.png') }}" class="w-12 h-12" alt="icon" />
-                    </div>
-                </div>
+    <!-- Orders Received Card -->
+    <div class="bg-white rounded-xl h-20 p-4 flex items-center justify-between shadow">
+        <div>
+            <h3 class="text-xl font-bold">{{ $ordersReceivedCount }}</h3> <!-- Display dynamic value for Orders Received -->
+            <span class="bg-gray-400 text-white text-xs px-2 py-1 rounded">Orders received</span>
+        </div>
+        <img src="{{ asset('assets/orders/images/cash-on-delivery.png') }}" class="w-12 h-12" alt="icon" />
+    </div>
+
+    <!-- Orders Served Card -->
+    <div class="bg-white rounded-xl h-20 p-4 flex items-center justify-between shadow">
+        <div>
+            <h3 class="text-xl font-bold">{{ $ordersServedCount }}</h3> <!-- Display dynamic value for Orders Served -->
+            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Orders served</span>
+        </div>
+        <img src="{{ asset('assets/orders/images/taco-truck.png') }}" class="w-12 h-12" alt="icon" />
+    </div>
+
+    <!-- Pending Orders Card -->
+    <div class="bg-white rounded-xl p-4 h-20 flex items-center justify-between shadow">
+        <div>
+            <h3 class="text-xl font-bold">{{ $pendingOrdersCount }}</h3> <!-- Display dynamic value for Pending Orders -->
+            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Pending orders</span>
+        </div>
+        <img src="{{ asset('assets/orders/images/clock.png') }}" class="w-12 h-12" alt="icon" />
+    </div>
+
+    <!-- First Time Buyer Card -->
+    <div class="bg-white rounded-xl p-4 h-20 flex items-center justify-between shadow">
+        <div>
+            <h3 class="text-xl font-bold">{{ $firstTimeBuyersCount }}</h3> <!-- Display dynamic value for First Time Buyers -->
+            <span class="bg-purple-400 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
+        </div>
+        <img src="{{ asset('assets/orders/images/eating.png') }}" class="w-12 h-12" alt="icon" />
+    </div>
+</div>
+
         
                 <!-- R-Monthly Sales Performence -->
                 <div class="flex flex-col gap-4">

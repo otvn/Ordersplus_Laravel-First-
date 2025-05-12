@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->decimal('price', 10, 2); // Price of the order (10 digits with 2 decimals)
             $table->enum('status', ['Accepted', 'Pending']); // Order status
             $table->enum('delivery_status', ['Shipped', 'Pending']); // Delivery status
+            $table->unsignedBigInteger('customer_id')->nullable(); // Customer ID (foreign key to users table)
+            $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade'); // Foreign key constraint, assuming users table exists
             $table->timestamps(); // Created_at and updated_at timestamps
         });
     }
