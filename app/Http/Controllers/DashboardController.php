@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kpi;
+use App\Models\Order; // Import the Order model
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +13,10 @@ class DashboardController extends Controller
         // Fetch all KPIs from the database
         $kpis = Kpi::all();
 
-        // Return the dashboard view and pass the KPIs data to it
-        return view('dashboard', compact('kpis'));
+        // Fetch all Orders from the database
+        $orders = Order::all(); 
+        
+        return view('dashboard', compact('kpis', 'orders'));
     }
+    
 }

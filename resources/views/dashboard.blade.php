@@ -613,65 +613,29 @@
       </tr>
     </thead>
     <tbody>
-      <!-- First Row -->
-      <tr class="border-b">
-        <td class="px-2 py-2 text-black text-sm">#25896</td>
-        <td class="px-2 py-2 text-black text-sm">Restaurant A</td>
-        <td class="px-4 py-2 text-sm flex items-center space-x-2">
-          <img src="{{ asset('assets/orders/images/orange_cake.jpg') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
-          <span class="text-text-black">Chicken Burger</span>
-        </td>
-        <td class="px-4 py-2 text-black text-sm">+99 256 896 8855</td>
-        <td class="px-4 py-2 text-text-black text-sm">$11.00</td>
-        <td class="px-4 py-2 text-lg text-green-500">Accepted</td>
-        <td class="px-4 py-2 text-text-black text-sm">Shipped</td>
-        <td class="px-4 py-2 text-text-black text-sm">Invoice #25896 - $11.00</td>
-        <td class="px-4 py-2 text-sm">
-          <button class="bg-blue-500 text-white px-6 py-2 mb-2 rounded-lg mr-2">Track</button>
-          <button class="bg-[#9CA3AF] text-white px-6 py-2 rounded-lg">Cancel</button>
-        </td>
-      </tr>
-
-      <!-- Second Row -->
-      <tr class="border-b">
-        <td class="px-4 py-2 text-black text-sm">#27856</td>
-        <td class="px-4 py-2 text-black text-sm">Restaurant B</td>
-        <td class="px-4 py-2 text-sm flex items-center space-x-2">
-          <img src="{{ asset('assets/orders/images/shrimp-avocado-tomato-salad.webp') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
-          <span class="text-black">Pizza Chicken Bake</span>
-        </td>
-        <td class="px-4 py-2 text-black text-sm">+99 963 852 7744</td>
-        <td class="px-4 py-2 text-black text-sm">$50.00</td>
-        <td class="px-4 py-2 text-lg text-yellow-500">Pending</td>
-        <td class="px-4 py-2 text-black text-sm">Pending</td>
-        <td class="px-4 py-2 text-black text-sm">Invoice #27856 - Pending</td>
-        <td class="px-4 py-2 text-sm">
-          <button class="bg-blue-500 text-white px-6 py-2 mb-2 rounded-lg mr-2">Accept</button>
-          <button class="bg-[#9CA3AF] text-white px-6 py-2 rounded-lg">Decline</button>
-        </td>
-      </tr>
-
-      <!-- Third Row -->
-      <tr class="border-b">
-        <td class="px-4 py-2 text-black text-sm">#23698</td>
-        <td class="px-4 py-2 text-black text-sm">Restaurant C</td>
-        <td class="px-4 py-2 text-sm flex items-center space-x-2">
-          <img src="{{ asset('assets/orders/images/Tandoori-Chicken-20.jpg') }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
-          <span class="text-black">Eco Chowmen</span>
-        </td>
-        <td class="px-4 py-2 text-black text-sm">+99 125 965 8544</td>
-        <td class="px-4 py-2 text-black text-sm">$68.00</td>
-        <td class="px-4 py-2 text-lg text-yellow-500">Pending</td>
-        <td class="px-4 py-2 text-black text-sm">Pending</td>
-        <td class="px-4 py-2 text-black text-sm">Invoice #23698 - Pending</td>
-        <td class="px-4 py-2 text-sm">
-          <button class="bg-blue-500 text-white px-6 py-2 mb-2 rounded-lg mr-2">Accept</button>
-          <button class="bg-[#9CA3AF] text-white px-6 py-2 rounded-lg">Decline</button>
-        </td>
-      </tr>
+      @foreach($orders as $order)
+        <tr class="border-b">
+          <td class="px-2 py-2 text-black text-sm">{{ $order->id }}</td>
+          <td class="px-2 py-2 text-black text-sm">{{ $order->restaurant }}</td>
+          <td class="px-4 py-2 text-sm flex items-center space-x-2">
+            <img src="{{ asset('assets/orders/images/' . $order->product_image) }}" alt="Food Image" class="w-10 h-10 object-cover rounded-full">
+            <span class="text-text-black">{{ $order->product_name }}</span>
+          </td>
+          <td class="px-4 py-2 text-black text-sm">{{ $order->phone }}</td>
+          <td class="px-4 py-2 text-text-black text-sm">${{ number_format($order->price, 2) }}</td>
+          <td class="px-4 py-2 text-lg text-green-500">{{ $order->status }}</td>
+          <td class="px-4 py-2 text-text-black text-sm">{{ $order->delivery_status }}</td>
+          <td class="px-4 py-2 text-text-black text-sm">Invoice #{{ $order->id }} - ${{ number_format($order->price, 2) }}</td>
+          <td class="px-4 py-2 text-sm">
+            <button class="bg-blue-500 text-white px-6 py-2 mb-2 rounded-lg mr-2">Track</button>
+            <button class="bg-[#9CA3AF] text-white px-6 py-2 rounded-lg">Cancel</button>
+          </td>
+        </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
+
 </div>
 
      
