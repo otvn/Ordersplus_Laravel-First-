@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kpi;
-use App\Models\Order; // Import the Order model
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,13 +21,13 @@ class DashboardController extends Controller
         $ordersServedCount = Order::where('status', 'Accepted')->count(); // Total orders served (Accepted status)
         $pendingOrdersCount = Order::where('status', 'Pending')->count(); // Pending orders
 
- 
- // Track first-time buyers (those who have a unique phone number)
-        $firstTimeBuyersCount = Order::select('phone')
-                                     ->distinct()
-                                     ->whereNotNull('phone')
-                                     ->where('status', 'Accepted') // Assuming first-time buyers are only those who made successful purchases
-                                     ->count();
+        // Track first-time buyers (those who have a unique customer_id)
+        $firstTimeBuyersCount = Order::select('customer_id')
+                                     ->distinct()  // Get only unique customer IDs
+                                     ->whereNotNull('customer_id')  // Ensure the customer_id exists
+                                     ->where('status', 'Accepted')  // Only count accepted orders
+                                     ->count();  // Count the distinct customer IDs
+
         // Return the dashboard view with the data
         return view('dashboard', compact(
             'kpis', 
@@ -35,8 +35,7 @@ class DashboardController extends Controller
             'ordersReceivedCount', 
             'ordersServedCount', 
             'pendingOrdersCount',
-            'firstTimeBuyersCount' // Pass the first-time buyers count to the view
-            
+            'firstTimeBuyersCount' 
         ));
     }
 }

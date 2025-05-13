@@ -15,7 +15,7 @@ public function up()
 {
     Schema::create('kpis', function (Blueprint $table) {
         $table->id();
-        $table->string('name');  // Name of the KPI (e.g., "Today's Revenue")
+        $table->string('name'); 
         $table->decimal('value', 10, 2);  
         $table->timestamps();  
     });

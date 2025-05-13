@@ -4,19 +4,22 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Order;
-
+use App\Models\User; 
 class OrderSeeder extends Seeder
 {
     public function run()
     {
+        $user = User::first();
         Order::create([
+
             'restaurant' => 'Restaurant A',
             'product_name' => 'Chicken Burger',
-            'product_image' => 'orange_cake.jpg', // Assuming the image is located in the `public/assets/orders/images/` directory
+            'product_image' => 'orange_cake.jpg', 
             'phone' => '+99 256 896 8855',
             'price' => 11.00,
             'status' => 'Accepted',
             'delivery_status' => 'Shipped',
+            'customer_id' => $user->id, 
         ]);
 
         Order::create([
@@ -27,6 +30,7 @@ class OrderSeeder extends Seeder
             'price' => 50.00,
             'status' => 'Pending',
             'delivery_status' => 'Pending',
+             'customer_id' => $user->id,
         ]);
         Order::create([
             'restaurant' => 'Restaurant Onti',
@@ -36,9 +40,10 @@ class OrderSeeder extends Seeder
             'price' => 40.00,
             'status' => 'Pending',
             'delivery_status' => 'Pending',
+             'customer_id' => $user->id,
         ]);
     
 
-        // Add more orders as needed...
+       
     }
 }

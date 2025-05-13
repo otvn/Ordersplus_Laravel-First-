@@ -27,17 +27,17 @@ class UserSeeder extends Seeder
     //     'password' => bcrypt('passord46'),
     //     'phone' => '+125457891',
     // ]);
+    //      User::create([
+    //     'name' => ' Smith',
+    //     'email' => 'j@examle.com',
+    //     'password' => bcrypt('pasord46'),
+    //     'phone' => '+1547891',
+    // ]);
          User::create([
-        'name' => ' Smith',
-        'email' => 'j@examle.com',
-        'password' => bcrypt('pasord46'),
-        'phone' => '+1547891',
-    ]);
-         User::create([
-        'name' => ' mith',
-        'email' => 'j@exmpl.com',
-        'password' => bcrypt('paord46'),
-        'phone' => '+157891',
+        'name' => ' ith',
+        'email' => 'j@exml.com',
+        'password' => bcrypt('paord4'),
+        'phone' => '+15781',
     ]);
     }
 }
