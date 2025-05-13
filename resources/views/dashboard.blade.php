@@ -511,13 +511,14 @@
     </div>
 
     <!-- First Time Buyer Card -->
-    <div class="bg-white rounded-xl p-4 h-20 flex items-center justify-between shadow">
-        <div>
-            <h3 class="text-xl font-bold">{{ $firstTimeBuyersCount }}</h3> <!-- Display dynamic value for First Time Buyers -->
-            <span class="bg-purple-400 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
-        </div>
-        <img src="{{ asset('assets/orders/images/eating.png') }}" class="w-12 h-12" alt="icon" />
+   <div class="bg-white rounded-xl h-20 p-4 flex items-center justify-between shadow">
+    <div>
+        <h3 class="text-xl font-bold">{{ $firstTimeBuyersCount }}</h3>
+        <span class="bg-purple-400 text-white text-xs px-2 py-1 rounded">First Time Buyer</span>
     </div>
+    <img src="{{ asset('assets/orders/images/eating.png') }}" class="w-12 h-12" alt="icon" />
+</div>
+
 </div>
 
         

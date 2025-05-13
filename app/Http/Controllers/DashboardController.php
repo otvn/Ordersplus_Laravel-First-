@@ -21,21 +21,22 @@ class DashboardController extends Controller
         $ordersServedCount = Order::where('status', 'Accepted')->count(); // Total orders served (Accepted status)
         $pendingOrdersCount = Order::where('status', 'Pending')->count(); // Pending orders
 
- // Fetch total first-time buyers (those who have placed exactly 1 order and that order is Accepted)
-    $firstTimeBuyersCount = Order::select('customer_id')
-        ->groupBy('customer_id') // Group by customer_id to count orders per customer
-        ->havingRaw('count(*) = 1') // Only customers who have placed 1 order
-        ->where('status', 'Accepted') // Ensure the order is "Accepted"
-        ->count();
-
+ 
+ // Track first-time buyers (those who have a unique phone number)
+        $firstTimeBuyersCount = Order::select('phone')
+                                     ->distinct()
+                                     ->whereNotNull('phone')
+                                     ->where('status', 'Accepted') // Assuming first-time buyers are only those who made successful purchases
+                                     ->count();
         // Return the dashboard view with the data
         return view('dashboard', compact(
             'kpis', 
             'orders', 
             'ordersReceivedCount', 
             'ordersServedCount', 
-            'pendingOrdersCount', 
-            'firstTimeBuyersCount'
+            'pendingOrdersCount',
+            'firstTimeBuyersCount' // Pass the first-time buyers count to the view
+            
         ));
     }
 }
